@@ -14,12 +14,23 @@
   Search: <input ng-model='query'>
 	{{query}}
 	
-<ul ng-repeat="post in posts | filter:query">
-	<li>{{post.title}}</li>
-	<li>{{post.detail}}</li>
-</ul>
+	<div ng-controller = "formController">
+		<ul ng-repeat="post in posts | filter:query">
+			<li>{{post.title}}</li>
+			<li>{{post.detail}}</li>
+			<button ng-click="edit(post)">EDIT</button>
+			<button ng-click="delete(post)">DELETE</button>
+		</ul>
 
-
+		<form novalidate class="simple-form">
+			Title: <input type="text" ng-model="post.title" /><br />
+			Detail: <input type="text" ng-model="post.detail" /><br />
+			<button ng-click="reset()">RESET</button>
+			<button ng-click="update(post)">SAVE</button>
+		</form>
+		<pre>form = {{post | json}}</pre>
+		<pre>master = {{master | json}}</pre>
+	</div>
   <div ng-view></div>
 
 
