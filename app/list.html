@@ -6,11 +6,11 @@
 <body ng-controller='PostController'>
 	
   	Search: <input ng-model='query'><br/>
-	<div>
+	<div ng-controller='formController'>
 		<ul ng-repeat="post in posts | filter:query">
 			<ol>Title: {{post.title}}</ol>
 			<ol>Detail: {{post.detail}}</ol>
-			<button ng-click="edit(post)" href="form.html">EDIT</button>
+			<button ng-click="edit(post)" link_to="#/form.html">EDIT</button>
 			<button ng-click="delete(post)">DELETE</button>
 		</ul>
 	</div>

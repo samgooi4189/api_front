@@ -1,9 +1,26 @@
 <!doctype html>
 <html lang="en" ng-app="myApp">
+<head>
   <meta charset="utf-8">
-  <title>Form for Post</title>
-  <link rel="stylesheet" href="./js/dist/js/css/bootstrap.css"/>
-<body ng-controller='formController'>
+  <title>My AngularJS App</title>
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body ng-controller="PostController">
+  <ul class="menu">
+    <li><a href="#/view1">view1</a></li>
+    <li><a href="#/view2">view2</a></li>
+  </ul>
+
+  Search: <input ng-model='query'>
+	{{query}}
+	
+	<div ng-controller = "formController">
+		<ul ng-repeat="post in posts | filter:query">
+			<li>{{post.title}}</li>
+			<li>{{post.detail}}</li>
+			<button ng-click="edit(post)">EDIT</button>
+			<button ng-click="delete(post)">DELETE</button>
+		</ul>
 
 		<form novalidate class="simple-form">
 			Title: <input type="text" ng-model="post.title" /><br />
@@ -11,8 +28,11 @@
 			<button ng-click="reset()">RESET</button>
 			<button ng-click="update(post)">SAVE</button>
 		</form>
-		<pre>Inspect = {{post | json}}</pre>
+		<pre>form = {{post | json}}</pre>
+		<pre>master = {{master | json}}</pre>
 	</div>
+  <div ng-view></div>
+
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
@@ -24,6 +44,5 @@
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
-
 </body>
 </html>

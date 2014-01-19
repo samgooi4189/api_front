@@ -1,42 +1,207 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" ng-app="myApp">
-<head>
-  <meta charset="utf-8">
-  <title>My AngularJS App</title>
-  <link rel="stylesheet" href="css/app.css"/>
-</head>
-<body ng-controller="PostController">
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="./js/docs-assets/ico/favicon.png">
 
-  Search: <input ng-model='query'>
-	{{query}}
-	
-	<div ng-controller = "formController">
-		<ul ng-repeat="post in posts | filter:query">
-			<li>{{post.title}}</li>
-			<li>{{post.detail}}</li>
-			<button ng-click="edit(post)">EDIT</button>
-			<button ng-click="delete(post)">DELETE</button>
-		</ul>
+    <title>Alliarent | Making Renting Painless</title>
 
-		<form novalidate class="simple-form">
-			Title: <input type="text" ng-model="post.title" /><br />
-			Detail: <input type="text" ng-model="post.detail" /><br />
-			<button ng-click="reset()">RESET</button>
-			<button ng-click="update(post)">SAVE</button>
-		</form>
-		<pre>form = {{post | json}}</pre>
-		<pre>master = {{master | json}}</pre>
-	</div>
-  <div ng-view></div>
+    <!-- Bootstrap core CSS -->
+    <link href="./js/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="./js/dist/css/carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Alliarent</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#/view1">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Options<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="form.html">New Post</a></li>
+                    <li><a href="list.html">Show All</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Info</li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-  -->
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Bring The Power Back To Tenants</h1>
+              <p>The rental industry is the Second most hated industry in the US. We are supplying the necessary tools to protect your rights and guide you through the renting experience.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>The Best Way To Get Your Money Back</h1>
+              <p>With years of internal experience in rental industry, we will make sure that you have the best protection out of your security deposit. We provide step by step guidance on your handheld device, so that you can reach our service easily.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>We Are On Your Side, Period!</h1>
+              <p>The company main objective is to solve the problem that existed in the comunity for years and educate renters about good renting practice.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" alt="Generic placeholder image" style="width: 140px; height: 140px;" src="img/house.png">
+          <h2>Checklist</h2>
+          <p>This is the list where most landlords will use to assess your apartment condition by the end of your lease. We will make sure that you have everything documented and understand what you should tdo when you move into a new apartment.</p>
+          <p><a class="btn btn-default" href="phototab.html" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle"  alt="Generic placeholder image" style="width: 140px; height: 140px;" src="img/doc.png">
+          <h2>Legal Document</h2>
+          <p>Arguing with your landlord is a hassle and quite an emotional ride. With legal advice and documents, we would able to help you solve the problem that you had with your landlord.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle"  alt="Generic placeholder image" style="width: 140px; height: 140px;" src="img/maintanence.png">
+          <h2>Maintenance</h2>
+          <p>Lost track of your apartment maintenance? We have ways to make sure that your landlord get stuff done on time.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Tax Return Season is Here <span class="text-muted">Are You Ready?</span></h2>
+          <p class="lead">Do you know that you could get tax credit out of your rental or lease? Don't worry, we have you covered.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive"  alt="Generic placeholder image" src="img/Tax.jpg">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive"  alt="Generic placeholder image" src="img/subleasing.jpg">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Having Hard Time To Sublease Securely?<span class="text-muted">Let Us Help You!</span></h2>
+          <p class="lead">Subleasing can be painful, especially isolating you from the damage caused during sublease period. We have the solution for you, approach us to know more.</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">No Security Deposit Being Returned?<span class="text-muted">No Worries!</span></h2>
+          <p class="lead">As long as you are following every steps that being given to you by us, we ensure that you would certainly get your security deposit back.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive"  alt="Generic placeholder image" src="img/securitydeposit.jpg">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2014 Alliarent Corp. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="./js/dist/js/bootstrap.min.js"></script>
+    <script src="./js/holder.js"></script>
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-route.js"></script>
   <script src="js/app.js"></script>
@@ -44,5 +209,6 @@
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
-</body>
+  </body>
 </html>
+
