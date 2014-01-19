@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+  <meta charset="utf-8">
+  <title>Form for Post</title>
+  <link rel="stylesheet" href="./js/dist/js/css/bootstrap.css"/>
+<body ng-controller='PostController'>
+	
+  	Search: <input ng-model='query'><br/>
+	<div>
+		<ul ng-repeat="post in posts | filter:query">
+			<ol>Title: {{post.title}}</ol>
+			<ol>Detail: {{post.detail}}</ol>
+			<button ng-click="edit(post)" href="form.html">EDIT</button>
+			<button ng-click="delete(post)">DELETE</button>
+		</ul>
+	</div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  -->
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-route.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+
+</body>
+</html>
